@@ -446,23 +446,29 @@ Please use 'make <target>' where '<target>' is one of:
    testlist              to list all existing tests
 ```
 
+[@dstmodders/maintainers]: https://github.com/orgs/dstmodders/teams/maintainers
+[@prettier/plugin-xml]: https://www.npmjs.com/package/@prettier/plugin-xml
 [agile]: https://en.wikipedia.org/wiki/Agile_software_development
 [busted]: https://olivinelabs.com/busted/
-[cmake]: https://cmake.org/
+[communication]: #communication
 [continuous deployment]: https://en.wikipedia.org/wiki/Continuous_deployment
 [continuous integration]: https://en.wikipedia.org/wiki/Continuous_integration
-[conventional commits]: https://www.conventionalcommits.org/
-[docker hub]: https://hub.docker.com/
+[depressed dst modders code of conduct]: https://github.com/dstmodders/.github/blob/main/CODE_OF_CONDUCT.md
+[depressed dst modders]: https://github.com/dstmodders
+[discord]: https://discord.gg/aypXHQYEHC
 [docker]: https://www.docker.com/
 [ds_mod_tools]: https://github.com/kleientertainment/ds_mod_tools
 [editorconfig]: https://editorconfig.org/
+[figma]: https://figma.com/
+[git]: #git
 [github actions]: https://github.com/features/actions
+[github projects]: https://github.com/features/issues/
 [github]: https://github.com/
 [gnu make]: https://www.gnu.org/software/make/
-[https://hub.docker.com/r/viktorpopkov/dst-mod]: https://hub.docker.com/r/viktorpopkov/dst-mod
-[https://trello.com/b/awij6azy]: https://trello.com/b/aWiJ6azY
+[klei-tools]: https://github.com/dstmodders/klei-tools
 [ktools]: https://github.com/nsimplex/ktools
 [lcov]: http://ltp.sourceforge.net/coverage/lcov.php
+[ldoc documentation]: https://stevedonovan.github.io/ldoc/manual/doc.md.html
 [ldoc]: https://stevedonovan.github.io/ldoc/
 [lua style guide]: https://github.com/luarocks/lua-style-guide
 [lua]: https://www.lua.org/
@@ -470,22 +476,9 @@ Please use 'make <target>' where '<target>' is one of:
 [luacov]: https://keplerproject.github.io/luacov/
 [luarocks]: https://luarocks.org/
 [makefile]: https://en.wikipedia.org/wiki/Makefile
-[nmake]: https://msdn.microsoft.com/en-us/library/dd9y37ha.aspx
 [prettier]: https://prettier.io/
+[project management]: #project-management
 [rfc 2119]: https://www.ietf.org/rfc/rfc2119.txt
 [scrum]: https://en.wikipedia.org/wiki/Scrum_(software_development)
 [slack]: https://dstmodders.slack.com/
-[trello]: https://trello.com/
-[depressed dst modders]: https://github.com/dstmodders
-[depressed dst modders code of conduct]: https://github.com/dstmodders/.github/blob/main/CODE_OF_CONDUCT.md
-[klei-tools]: https://github.com/dstmodders/klei-tools
-[@prettier/plugin-xml]: https://www.npmjs.com/package/@prettier/plugin-xml
-[discord]: https://discord.gg/aypXHQYEHC
 [steam workshop]: https://steamcommunity.com/app/322330/workshop/
-[ldoc documentation]: https://stevedonovan.github.io/ldoc/manual/doc.md.html
-[github projects]: https://github.com/features/issues/
-[git]: #git
-[figma]: https://figma.com/
-[@dstmodders/maintainers]: https://github.com/orgs/dstmodders/teams/maintainers
-[communication]: #communication
-[project management]: #project-management
