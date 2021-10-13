@@ -14,25 +14,26 @@ _The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119][]._
 
-- [Code of Conduct](#code-of-conduct)
+- [Code of conduct](#code-of-conduct)
 - [I don't want to read this. I just have a question!](#i-dont-want-to-read-this-i-just-have-a-question)
 - [What should I know before I get started?](#what-should-i-know-before-i-get-started)
-- [Style Guides](#style-guides)
+- [Style guides](#style-guides)
 
-  - [Git Commit Messages](#git-commit-messages)
+  - [Git commit messages](#git-commit-messages)
   - [Lua](#lua)
   - [Markdown](#markdown)
   - [XML](#xml)
 
 - [I want to join!](#i-want-to-join)
 
+  - [Workflow](#workflow)
   - [Communication](#communication)
-  - [Project Management](#project-management)
+  - [Project management](#project-management)
   - [Git](#git)
   - [CI/CD](#cicd)
   - [Makefile](#makefile)
 
-## Code of Conduct
+## Code of conduct
 
 This project and everyone participating in it is governed by the
 [Depressed DST Modders Code of Conduct][]. By participating, you are expected to
@@ -117,7 +118,7 @@ workflow when developing this project. Their usage is OPTIONAL but is strongly
 advisable. Consider running at least code linting and tests (if there are any)
 throughout the development.
 
-## Style Guides
+## Style guides
 
 Keep in mind, that all the suggestions are negotiable and can be changed when
 a rational reason has been found.
@@ -125,12 +126,12 @@ a rational reason has been found.
 Most repositories include an [EditorConfig][] file that describes some basic
 code style rules. You SHOULD use it as the base reference.
 
-- [Git Commit Messages](#git-commit-messages)
+- [Git commit messages](#git-commit-messages)
 - [Lua](#lua)
 - [Markdown](#markdown)
 - [XML](#xml)
 
-### Git Commit Messages
+### Git commit messages
 
 You SHOULD:
 
