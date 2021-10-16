@@ -17,6 +17,11 @@ interpreted as described in [RFC 2119][]._
 - [Code of conduct](#code-of-conduct)
 - [I don't want to read this. I just have a question!](#i-dont-want-to-read-this-i-just-have-a-question)
 - [What should I know before I get started?](#what-should-i-know-before-i-get-started)
+
+  - [Mod installation](#mod-installation)
+  - [Lua + LuaRocks](#lua--luarocks)
+  - [Tools](#tools)
+
 - [Style guides](#style-guides)
 
   - [Git commit messages](#git-commit-messages)
@@ -65,7 +70,7 @@ incorporate that into your workflow.
 #### Shell/Bash (Linux)
 
 ```shell
-$ git clone https://github.com/victorpopkov/dst-mod-sdk
+$ git clone https://github.com/dstmodders/dst-mod-sdk
 $ cd ./dst-mod-sdk/
 $ export DST="${HOME}/.steam/steam/steamapps/common/Don't Starve Together"
 $ docker pull dstmodders/dst-mod
@@ -75,11 +80,65 @@ $ docker run --rm -itu dst-mod -v "${DST}:/opt/dont_starve/" -v "$(pwd):/opt/$(b
 #### PowerShell (Windows)
 
 ```powershell
-PS C:\> git clone https://github.com/victorpopkov/dst-mod-sdk
+PS C:\> git clone https://github.com/dstmodders/dst-mod-sdk
 PS C:\> cd .\dst-mod-sdk\
 PS C:\> $Env:DST = "C:\Program Files (x86)\Steam\steamapps\common\Don't Starve Together"
 PS C:\> docker pull dstmodders/dst-mod
 PS C:\> $basename = (Get-Item "${PWD}").Basename; docker run --rm -itu dst-mod -v "$($Env:DST):/opt/dont_starve/" -v "${PWD}:/opt/${basename}" -w "/opt/${basename}" dstmodders/dst-mod /bin/bash
+```
+
+### Mod installation
+
+You MAY install any mod using one of the following methods:
+
+- [Steam Workshop](#steam-workshop)
+- [Makefile](#makefile)
+- [Manually](#manually)
+
+#### Steam Workshop
+
+The easiest and a RECOMMENDED way to install any production-ready mod release is
+by subscribing to it using the [Steam Workshop][]. You can find a link in the
+"About" section in each mod repository. This way the mod will be automatically
+updated upon a new version release by using the in-game "Mods" submenu.
+
+#### Makefile
+
+Most mods SHOULD include the [Makefile][] rule to install them to the game mods'
+directory. This is the RECOMMENDED way during the development in Unix-like
+environment. However, this approach requires `DST_MODS` environment variable to
+point to the game mods' directory and MAY require [rsync][] to be installed as
+well.
+
+If you are following the [Docker][] development approach and have correctly
+mounted the game directory, then everything SHOULD be ready out of the box.
+
+#### Manually
+
+If you would like to install a mod manually, for example on devices where you
+don't have access to the [Steam Workshop][], you MAY:
+
+1. Download either the source code or the workshop version from a mod repository
+   "Releases" page.
+2. Unpack the archive and move it to the game mods' directory.
+
+Keep in mind, that you SHOULD manually update the mod each time a new version
+has been released.
+
+##### Steam (Linux)
+
+The mods' directory path on Linux installed through [Steam][]:
+
+```txt
+/home/<your username>/.steam/steam/steamapps/common/Don't Starve Together/mods/
+```
+
+##### Steam (Windows)
+
+The mods' directory path on Windows installed through [Steam][]:
+
+```txt
+C:\Program Files (x86)\Steam\steamapps\common\Don't Starve Together\mods\
 ```
 
 ### Lua + LuaRocks
@@ -97,9 +156,8 @@ throughout the project as well.
 Based on the type of work you are planning to do, you MAY need the following
 tools:
 
-- [ds_mod_tools][] (or our fork [klei-tools][])
-- [ktools][] (or our fork
-  [ktools](https://github.com/victorpopkov/ktools#linux))
+- [ds_mod_tools][] (or our fork [dstmodders/klei-tools][])
+- [ktools][] (or our fork [dstmodders/ktools][])
 
 Tools below are RECOMMENDED to improve overall code quality and encourage
 following some of the best practices:
@@ -458,6 +516,8 @@ Please use 'make <target>' where '<target>' is one of:
 [discord]: https://discord.gg/aypXHQYEHC
 [docker]: https://www.docker.com/
 [ds_mod_tools]: https://github.com/kleientertainment/ds_mod_tools
+[dstmodders/klei-tools]: https://github.com/dstmodders/klei-tools
+[dstmodders/ktools]: https://github.com/dstmodders/ktools
 [editorconfig]: https://editorconfig.org/
 [figma]: https://figma.com/
 [git]: #git
@@ -465,7 +525,6 @@ Please use 'make <target>' where '<target>' is one of:
 [github projects]: https://github.com/features/issues/
 [github]: https://github.com/
 [gnu make]: https://www.gnu.org/software/make/
-[klei-tools]: https://github.com/dstmodders/klei-tools
 [ktools]: https://github.com/nsimplex/ktools
 [lcov]: http://ltp.sourceforge.net/coverage/lcov.php
 [ldoc documentation]: https://stevedonovan.github.io/ldoc/manual/doc.md.html
@@ -479,6 +538,8 @@ Please use 'make <target>' where '<target>' is one of:
 [prettier]: https://prettier.io/
 [project management]: #project-management
 [rfc 2119]: https://www.ietf.org/rfc/rfc2119.txt
+[rsync]: https://en.wikipedia.org/wiki/Rsync
 [scrum]: https://en.wikipedia.org/wiki/Scrum_(software_development)
 [slack]: https://dstmodders.slack.com/
 [steam workshop]: https://steamcommunity.com/app/322330/workshop/
+[steam]: https://store.steampowered.com/
