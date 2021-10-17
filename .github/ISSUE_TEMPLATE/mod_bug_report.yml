@@ -31,7 +31,7 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: Expected behavior
+      label: Expected behaviour
       value: A clear and concise description of what you expected to happen.
     validations:
       required: true
@@ -42,7 +42,7 @@ body:
         <details><summary>Click to expand</summary>
 
         ```txt
-        If applicable, replace this line with the output.
+        If applicable, replace this line with the console output.
         ```
         </details>
     validations:
@@ -50,6 +50,10 @@ body:
   - type: textarea
     attributes:
       label: Screenshot
-      value: If applicable, replace this with an embedded screenshot to help explain your problem.
+      value: |
+        <details><summary>Click to expand</summary>
+
+        If applicable, replace this line with an embedded screenshot to help explain your problem.
+        </details>
     validations:
       required: false
