@@ -39,14 +39,17 @@ body:
     attributes:
       label: Console output
       value: |
-        <details><summary>Click to expand</summary><pre><code>
-        If applicable, replace this text with the output.
-        </code></pre></details>
+        <details><summary>Click to expand</summary>
+
+        ```txt
+        If applicable, replace this line with the output.
+        ```
+        </details>
     validations:
       required: false
   - type: textarea
     attributes:
-      label: Screenshot(s)
-      value: If applicable, add screenshot(s) to help explain your problem.
+      label: Screenshot
+      value: If applicable, replace this with an embedded screenshot to help explain your problem.
     validations:
       required: false
