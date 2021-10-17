@@ -272,7 +272,7 @@ Each module SHOULD have an [LDoc][] comment in the following format:
 --
 -- **Source Code:** [<repository url>](<repository url>)
 --
--- @author Depressed DST Modders (@dstmodders)
+-- @author [Depressed DST Modders](https://github.com/dstmodders)
 -- @copyright <current year>
 -- @license <licence abbrevation>
 -- @release <version>
@@ -291,7 +291,7 @@ Each class SHOULD have an [LDoc][] comment in the following format:
 --
 -- @classmod <class name>
 --
--- @author Depressed DST Modders (@dstmodders)
+-- @author [Depressed DST Modders](https://github.com/dstmodders)
 -- @copyright <current year>
 -- @license <licence abbrevation>
 -- @release <version>
