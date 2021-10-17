@@ -488,20 +488,28 @@ wrapped as targets. For example:
 $ make help
 ```
 
-```
+```txt
 Please use 'make <target>' where '<target>' is one of:
 
    citest                to run Busted tests for CI
-   dev                   to run ldoc + lint + testclean + test
+   dev                   to run reinstall + ldoc + lint + testclean + test
+   gitrelease            to commit modinfo.lua and CHANGELOG.md + add a new tag
+   install               to install the mod
    ldoc                  to generate an LDoc documentation
    lint                  to run code linting
    luacheckglobals       to print Luacheck globals (mutating/setting)
    luacheckreadglobals   to print Luacheck read_globals (reading)
+   modicon               to pack modicon
+   reinstall             to uninstall and then install the mod
    release               to update version
    test                  to run Busted tests
    testclean             to clean up after tests
    testcoverage          to print the tests coverage report
    testlist              to list all existing tests
+   uninstall             to uninstall the mod
+   updatesdk             to update SDK to the latest version
+   workshop              to prepare the Steam Workshop directory + archive
+   workshopclean         to clean up Steam Workshop directory + archive
 ```
 
 [@dstmodders/maintainers]: https://github.com/orgs/dstmodders/teams/maintainers
