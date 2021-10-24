@@ -24,25 +24,31 @@ interpreted as described in [RFC 2119][]._
 
 - [Style guides](#style-guides)
 
-  - [Git commit messages](#git-commit-messages)
+  - [Git commit messages][]
   - [Lua](#lua)
   - [Markdown](#markdown)
   - [XML](#xml)
 
-- [I want to join!](#i-want-to-join)
+- [I want to become a member!](#i-want-to-become-a-member)
 
   - [Workflow](#workflow)
-  - [Communication](#communication)
+
+    - [Working on an existing mod][]
+    - [Creating a new mod](#creating-a-new-mod)
+    - [Moving an existing mod](#moving-an-existing-mod)
+
+  - [Communication][]
   - [Project management](#project-management)
-  - [Git](#git)
+  - [Git][]
   - [CI/CD](#cicd)
   - [Makefile](#makefile)
 
 ## Code of conduct
 
-This project and everyone participating in it is governed by the
-[Depressed DST Modders Code of Conduct][]. By participating, you are expected to
-uphold this code. Please report unacceptable behaviour to abuse@dstmodders.com.
+Any project within our team and everyone participating in any of them is
+governed by the [Depressed DST Modders Code of Conduct][]. By participating, you
+are expected to uphold this code. Please report unacceptable behaviour to
+abuse@dstmodders.com.
 
 ## I don't want to read this. I just have a question!
 
@@ -144,12 +150,11 @@ C:\Program Files (x86)\Steam\steamapps\common\Don't Starve Together\mods\
 ### Lua + LuaRocks
 
 The game engine uses the [Lua][] interpreter v5.1, so it's RECOMMENDED to use
-the same version locally as well. In this project, v5.1.5 is used so if you
-stumble upon some compatibility issues, consider switching to that version
-instead.
+the same version locally as well. We, generally use v5.1.5, so if you stumble
+upon some compatibility issues, consider switching to that version instead.
 
 Also, we RECOMMEND installing the latest [LuaRocks][] to install some tools used
-throughout the project as well.
+throughout the development as well.
 
 ### Tools
 
@@ -184,7 +189,7 @@ a rational reason has been found.
 Most repositories include an [EditorConfig][] file that describes some basic
 code style rules. You SHOULD use it as the base reference.
 
-- [Git commit messages](#git-commit-messages)
+- [Git commit messages][]
 - [Lua](#lua)
 - [Markdown](#markdown)
 - [XML](#xml)
@@ -239,6 +244,8 @@ However, in most cases just the subject line as a commit SHOULD be enough:
 ```txt
 Short (72 chars or less) summary
 ```
+
+### GitHub issues
 
 ### Lua
 
@@ -346,7 +353,7 @@ In general, you SHOULD:
 - Use 80 as the maximum line length
 - Use double quotes
 
-## I want to join!
+## I want to become a member!
 
 Yay! Thanks for considering joining us as another depressed member.
 
@@ -366,50 +373,208 @@ Below you can find everything you SHOULD know about our workflow to see if it
 fits you:
 
 - [Workflow](#workflow)
+
+  - [Working on an existing mod][]
+  - [Creating a new mod](#creating-a-new-mod)
+  - [Moving an existing mod](#moving-an-existing-mod)
+
 - [Communication][]
-- [Project management][]
-- [Git](#git)
+- [Project management](#project-management)
+- [Git][]
 - [CI/CD](#cicd)
 - [Makefile](#makefile)
 
 ### Workflow
 
-In most cases, our workflow SHOULD be the following:
+#### Working on an existing mod
 
-1. We communicate (see [Communication][]) with the team when feeling to do
+Do you have ideas on improving an already existing mod that is part of this
+organization full of depressed members? Or maybe you just want to help out by
+closing an open issue that others were too lazy to solve?
+
+OMG! Thank you! Just thinking about this makes this world a little bit better
+and drives away the suicide thoughts.
+
+Working on an existing mod mostly doesn't differ from any other Open-Source
+project. This is how it SHOULD be done:
+
+1. **I create or pick an issue** that I'm either planning to work on sooner or
+   later or have just decided to help with. As an example, let's take a look at
+   an issue [dst-mod-auto-join#5][].
+
+2. **I check whether this issue has already been assigned to someone else**. If
+   not, I assign myself to it so others know that I've decided to deal with it.
+   If yes, then I MAY ask in chat about its progress and/or just assign myself
+   if I really feel like it (it's always better to have more solutions).
+
+3. **I create an issue-specific named branch from the latest `develop` one**. If
+   it's a feature request, I use the `feature` keyword as part of the branch, if
+   it's a bug report, I use the `issue` instead (to learn more, see [Git][]). If
+   I'm referencing an existing issue (and you are if you are reading this), I
+   MAY use the `issue` keyword in both cases. For example
+   ([dst-mod-auto-join#5][]):
+
+   ```shell
+   $ git checkout develop
+   $ git pull origin develop
+   $ git checkout -b ViktorYu234/issue-5
+   ```
+
+4. **I try to solve an issue as best as I can, commit (see
+   [Git commit messages][]) and push**. Even if the issue has been solved
+   only partly and I've faced some difficulties, it's still better to push my
+   work as others MAY base theirs on mine. For example:
+
+   ```shell
+   $ git add .
+   $ git commit
+   $ git push origin ViktorYu234/issue-5
+   ```
+
+5. **If I'm happy with the result I open a Pull Request (PR). I MUST open it
+   using the `develop` branch as a base**. I don't need to assign myself if I'm
+   the one who is opening it and I SHOULD just wait for others to review or, at
+   very least, acknowledge the fact that they are not dead yet and SHOULD at
+   least try to be aware of their surroundings.
+
+6. **I merge it myself if no one has done it yet and I'm having direct access to
+   the repository**. However, if I'm the one who is merging, **I MUST be sure
+   that everything is stable and has been manually tested**. I SHOULD NOT merge
+   things blindly.
+
+7. **I repeat**, if I feel like it.
+
+#### Creating a new mod
+
+Have an idea for a new mod? Want to feel the power of friendship instead of
+developing alone? That's awesome! Everything is better when there is someone who
+can back you up.
+
+When creating a new mod, in most cases, our workflow SHOULD be the following:
+
+1. **We communicate (see [Communication][]) with the team** when feeling to do
    something: share an idea, design, prototype, etc. No one is obligated in
    doing stuff so no one expects anything from others. If someone becomes
    interested, he/she might join you. However, don't hesitate to ask for help or
    something.
-2. We create a design prototype first. We generally use [Figma][] as we work on
+
+2. **We create a design prototype first**. We generally use [Figma][] as we work on
    different operating systems. Believe it or not, extra time wasted in the
    design itself always wins the time in the long run. Moreover, it's good to
    have everyone on the same page. Don't have design experience? Don't hesitate
    and ask for help. You are a designer? Join our design team as some components
    MAY already be a part of the library to speed things up.
-3. Other members MAY wake up and become interested in the project itself. People
-   usually tend to have more interest after seeing what are you planning to do.
-   As soon as most team members approve the design project, we create a
-   repository and start working on it. Everyone in the
-   [@dstmodders/maintainers][] team has direct access. Others are manually added
-   to each repository for direct access if they are planning to maintain it in
-   the future. In most cases, we just use PRs and issues as a way to organize
-   our work (see [Project management][]).
-4. We create/pick an issue, open a PR or create a branch (see [Git][]) and
-   follow our guidelines. The work is assigned either based on the communication
-   or by using [GitHub Projects][] by picking and assigning an issue. For
-   example:
 
-   1. Pick a [GitHub][] issue (reference example: #42)
-   2. Create your branch: `<your username>/issue-42` (from `develop` branch)
-   3. Review, commit and push your work into your branch
-   4. Repeat
+3. **We create a repository** as soon as everyone involved is happy enough with
+   it. Other members MAY wake up and become interested in the project too.
+   People usually tend to have more interest after seeing what are you planning
+   to do. Everyone in the [@dstmodders/maintainers][] team has direct access.
+   Others are manually added to each repository for direct access if they are
+   planning to maintain it in the future.
 
-5. The repository maintainers review, suggest changes and merge the existing
-   branch either from PR or from the repository directly into the `develop`
-   branch. Go to step #4 and repeat.
+4. **We get our hands dirty and develop**. All the work is done in the `develop`
+   branch, even during the initial development (before making the first
+   release). We SHOULD use [GitHub Projects][] to organize all our tasks (see
+   [Project management][]) and/or just communicate (see [Communication][]).
+   During the initial development, we SHOULD use simple note cards in
+   [GitHub Projects][] as a way to let others know about the current progress of
+   any specific feature. We use branches (see [Git][]) so we wouldn't interfere
+   with others work and just merge things into the `develop` branch by the end
+   of the current sprint. Basically, we SHOULD:
 
-6. Once everyone are happy. We make a release.
+   1. **Split the development into smaller goals (sprints)** which will be
+      represented as simple notes using [GitHub Projects][] by communicating
+      with each other. If we are planning ahead, we use the "Product backlog" to
+      store all our sprints.
+
+   2. **Pick the sprint as our next development goal** and move it to the
+      "Current sprint" column. For example: _"Add edit/remove buttons"_.
+
+   3. **Split our current sprint into smaller tasks** each of which is
+      represented as a simple note in the "Sprint backlog" column. For example:
+      _"Add delete confirmation dialog"_.
+
+   4. **Delegate different tasks to the team members** who want to work on this
+      project. This is done by editing an existing task note and prefixing it
+      with the username of that team member. Every team member decides on
+      his/her own what to pick and SHOULD prefix each task himself/herself. For
+      example: _"@victorpopkov Add delete confirmation dialog"_.
+
+   5. **Create a task-specific named branch from the latest `develop` one**. In
+      most cases, it should include the `feature` keyword as part of the branch
+      (to learn more, see [Git][]). For example:
+
+      ```shell
+      $ git checkout develop
+      $ git pull origin develop
+      $ git checkout -b victorpopkov/feature/add-delete-confirmation-dialog
+      ```
+
+      Or you COULD just use a card ID in the branch name as a reference:
+      `victorpopkov/feature/card-70988446`
+
+   6. **We try to solve our tasks as best as we can, commit (see
+      [Git commit messages][]) and push.** For example:
+
+      ```shell
+      $ git add .
+      $ git commit
+      $ git push origin victorpopkov/feature/card-70988446
+      ```
+
+   7. **Merge all completed tasks by the end of the sprint into the `develop`
+      branch**.
+
+   8. **Pick a next sprint and repeat**.
+
+5. **We make the first release and publish it** once everyone is happy. After
+   this point, we just follow the [working on an existing mod][] workflow.
+
+#### Moving an existing mod
+
+Have an existing mod that you would like to move into this organization? Not
+afraid of changing both license and author to match the organization? That's
+awesome! The hardest part over.
+
+The whole idea of this organization was to remove a one-person dependability of
+each project. You know... people can't always be there 24/7 and make new
+releases. We are all depressed here. Maybe tomorrow someone decides to hang
+himself somewhere in the forest. But at least, the power of friendship won't let
+your project die.
+
+When moving an existing mod, our workflow SHOULD be the following:
+
+1. **We communicate (see [Communication][]) with the team** what mod to move.
+   Maybe it's a mod that already has similar functionality with one of the
+   existing ones. We could just merge them to avoid having an extra project to
+   maintain. However, such a scenario would be pretty rare.
+
+2. **We create or you just move the existing repository** to this organization
+   depending on whether the repository already exists or not. Maybe it exists as
+   a [Steam Workshop][] release only. If that is the case, then you MAY just
+   commit and push the latest release there:
+
+   ```shell
+   $ git checkout -b 'develop'
+   $ git add .
+   $ git commit -m 'Add latest release'
+   $ git push origin develop
+   ```
+
+   Don't worry. If you are not familiar with [Git][] there is always someone to
+   help you with everything. You are already a part of the team.
+
+   From this point, you are becoming the lead maintainer of that repository and
+   every Pull Request (PR) SHOULD be merged by you. However, everyone in the
+   [@dstmodders/maintainers][] team will also have direct access, but we SHOULD
+   respect each other and the lead maintainer.
+
+3. **We open issues and/or PRs to meet the organization requirements** based on
+   the guidelines you are reading right now. You don't have to know everything
+   and can just learn things step by step. No one expects you to prepare the
+   repository to meet the guidelines on your own.
+
+4. That's it! Now we just all continue [working on an existing mod][].
 
 ### Communication
 
@@ -524,10 +689,12 @@ Please use 'make <target>' where '<target>' is one of:
 [discord]: https://discord.gg/aypXHQYEHC
 [docker]: https://www.docker.com/
 [ds_mod_tools]: https://github.com/kleientertainment/ds_mod_tools
+[dst-mod-auto-join#5]: https://github.com/dstmodders/dst-mod-auto-join/issues/5
 [dstmodders/klei-tools]: https://github.com/dstmodders/klei-tools
 [dstmodders/ktools]: https://github.com/dstmodders/ktools
 [editorconfig]: https://editorconfig.org/
 [figma]: https://figma.com/
+[git commit messages]: #git-commit-messages
 [git]: #git
 [github actions]: https://github.com/features/actions
 [github projects]: https://github.com/features/issues/
@@ -551,3 +718,4 @@ Please use 'make <target>' where '<target>' is one of:
 [slack]: https://dstmodders.slack.com/
 [steam workshop]: https://steamcommunity.com/app/322330/workshop/
 [steam]: https://store.steampowered.com/
+[working on an existing mod]: #working-on-an-existing-mod
