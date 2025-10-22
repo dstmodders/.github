@@ -1,0 +1,21 @@
+name: General issue
+description: Create a general issue
+body:
+  - type: textarea
+    attributes:
+      label: Problem
+      value: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed solution
+      value: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Progress
+      value: Share any work you've started, testing done, references, or links to branches/PRs (optional).
+    validations:
+      required: false
